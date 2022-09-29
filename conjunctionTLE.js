@@ -26,6 +26,9 @@ async function getConjunctions() {
 
             var issName = arr[1].match(/(.*).{3}$/)[1];
             var objName = arr[8].match(/(.*).{3}$/)[1];
+            var startTime = `${arr[10].substring(0, 4)} ${arr[10].substring(4, 7)} ${arr[10].substring(7, 9)} ${arr[10].substring(9, arr[10].length)}`;
+            var tcaTime = `${arr[11].substring(0, 4)} ${arr[11].substring(4, 7)} ${arr[11].substring(7, 9)} ${arr[11].substring(9, arr[10].length)}`;
+            var stopTime = `${arr[12].substring(0, 4)} ${arr[12].substring(4, 7)} ${arr[12].substring(7, 9)} ${arr[12].substring(9, arr[10].length)}`;
 
             async function getTLE(formData) {
                 try {
@@ -75,9 +78,9 @@ async function getConjunctions() {
                     "dilutionThreshold": arr[4],
                     "minRange": arr[5],
                     "velocity": arr[6],
-                    "start": arr[10],
-                    "tca": arr[11],
-                    "stop": arr[12]
+                    "start": startTime,
+                    "tca": tcaTime,
+                    "stop": stopTime
                 },
                 "iss": {
                     "noradId": arr[0],
