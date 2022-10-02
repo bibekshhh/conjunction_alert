@@ -2,7 +2,6 @@ import * as cheerio from 'cheerio';
 import fetch from 'node-fetch'
 import FormData from 'form-data';
 
-main();
 
 async function getConjunctions() {
     try {
@@ -105,7 +104,7 @@ async function getConjunctions() {
     }
 }
 
-async function main() {
+export default async function main() {
     const TLE_object = await getConjunctions();
-    console.log(TLE_object)
+    return TLE_object
 }
