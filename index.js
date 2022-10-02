@@ -1,8 +1,10 @@
 import express from "express";
 
 import main from "./conjunctionTLE.js"
+import cors from "cors"
 
 const app = express()
+app.use(cors())
 
 app.get("/", async (req, res) => {
     try {
