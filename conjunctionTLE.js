@@ -10,7 +10,7 @@ async function getConjunctions() {
             redirect: 'follow'
         };
 
-        const load = await fetch("http://celestrak.org/SOCRATES/search-results.php?IDENT=CATNR&CATNR_TEXT1=25544&ORDER=MINRANGE&MAX=25&B1=Submit", requestOptions)
+        const load = await fetch("https://celestrak.org/SOCRATES/search-results.php?IDENT=NAME&NAME_TEXT1=&NAME_TEXT2=&ORDER=MAXPROB&MAX=10", requestOptions)
         const loadedData = await load.text();
         const $ = cheerio.load(loadedData)
         const table = $('table.center.outline').text().replaceAll(" ", "").replace(/\s+/g, ' ').trim().split(" ");
